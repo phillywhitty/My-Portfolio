@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <!-- -------------------------nav-bar-------------------------------- -->
     <div id="header">
         <div class="container">
             <nav>
@@ -49,15 +50,33 @@
                         Let's collaborate and turn your vision into a remarkable digital solution.</p>
 
                     <div class="tab-titles">
-                        <p class="tab-links active-link">Skills</p>
-                        <p class="tab-links">Experience</p>
-                        <p class="tab-links">Education</p>
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
                     </div>
-                    <div class="tab-contents">
+                    <div class="tab-contents active-tab" id="skills">
                         <ul>
                             <li><span>UI/UX</span>Designing Web/App Interfaces<br></li>
                             <li><span>Web Development</span>Web App Development<br></li>
                             <li><span>App Development</span>Building Android/iOS Apps<br></li>
+                        </ul>
+
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>2021-2022</span>Self Employed Welder<br></li>
+                            <li><span>2016-2021</span>Pipe Welding at MCM Engineering<br></li>
+                            <li><span>2014-2015</span>General Operator at Radley Engineering<br></li>
+                            <li><span>2013</span>Shop Assistant at Centra Ramsgrange<br></li>
+                        </ul>
+
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2022 - Current</span>Code Institutes Full Stack Diploma<br></li>
+                            <li><span>2015-2016</span>Advanced Welding Programme Cork<br></li>
+                            <li><span>2011-2012</span>QQI Level 5 Sport And Recreation Programme Ramsgrange<br></li>
+                            <li><span>2010</span>Leaving Certificate <br></li>
                         </ul>
 
                     </div>
@@ -67,7 +86,21 @@
         </div>
 
     </div>
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
 
+        function opentab(tabname) {
+            for (tablink of tablinks) {
+                tablink.classList.remove("active-link");
+            }
+            for (tabcontent of tabcontents) {
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+    </script>
 
 
 </body>
